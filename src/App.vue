@@ -1,60 +1,69 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1></h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+              <ul class="nav navbar-nav navbar-center links">
+                <li><router-link to="/"><i class="fa fa-home"></i> Quotes</router-link></li>
+                <li><router-link to="/new-quote"><i class="fa fa-user"></i> New Quotes</router-link></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="view">
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
+<script type="text/babel">
+//  import NewQuote from './components/new-quote.vue';
+
 export default {
-  name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+
     }
   }
+
+//  components: {
+//    'app-new-quote': NewQuote
+//  }
 }
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 30px 0 0 0;
+  background: #F7F8FB;
+  min-height: 800px;
 }
 
-h1, h2 {
-  font-weight: normal;
-}
+  #view {
+    margin-top: 80px;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  .navbar {
+    background: #333333;
+    min-height: 70px;
+    font-weight: bold;
+  }
+  .links {
+   margin-top: 10px;
+  }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+  .links li a {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 20px;
+  }
 </style>
